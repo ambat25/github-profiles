@@ -19,7 +19,13 @@ export const addUser = (userID) => {
 
     return (dispatch) => {
         dispatch(showMessage('adding user'))
-        fetchUser(userID).then(user=>dispatch(userAdd(user)))
+        fetchUser(userID).then(user=>dispatch(userAdd(user))).catch(err=>{
+            dispatch(showMessage('user not found'))
+            setTimeout(() => {
+              dispatch(showMessage(''));
+            }, 3000)
+            
+        })
     }
 }
 
