@@ -1,4 +1,4 @@
- import {USER_ADD} from './users'
+ import {USER_ADD,LOAD_ADD} from './users'
 
 
 
@@ -10,6 +10,7 @@ export default (state = messageInitialState, action) => {
         case SHOW_MESSAGE:
             return action.payload
         case USER_ADD:
+        case LOAD_ADD:
             return ''
         default:
             return state
