@@ -49,6 +49,9 @@
   -moz-box-shadow:    0 0 5px black;
   box-shadow:         0 0 5px black;
 }
+.msg-red{
+  background: red !important;
+}
 .profile-details{
   width: 160px;
   overflow: hidden;

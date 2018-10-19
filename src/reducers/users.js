@@ -20,16 +20,24 @@ export const userAdd = (profile) => ({
 
 export const getUsers = () => {
     return (dispatch)=>{
-        dispatch(showMessage('loading users'))
+        dispatch(showMessage({msg:'loading users'}))
         getAllUsers().then(users=>dispatch(loadUsers(users)))
     }
 }
 export const addUser = (userID) => {
     return (dispatch) => {
-        dispatch(showMessage('adding user'))
+        dispatch(showMessage({msg:'adding user'}))
         fetchUser(userID).then(user=> {
-            if(!user._id) return dispatch(showMessage(''))
-            return dispatch(userAdd(user))
+            if(!user.login){
+                dispatch(showMessage({msg:'Cannot add user',class:'msg-red'}))
+                setTimeout(() => {
+                    return dispatch(showMessage({msg:''}))
+                }, 2000)
+                
+            } 
+            else{
+                return dispatch(userAdd(user))
+            }
         })
     }
 

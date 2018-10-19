@@ -3,17 +3,17 @@
 
 
 const SHOW_MESSAGE = 'SHOW_MESSAGE'
-const messageInitialState = ''
+const messageInitialState = {msg:'',class:''}
 export const showMessage= (message)=>({type:SHOW_MESSAGE,payload:message})
 export default (state = messageInitialState, action) => {
     switch (action.type) {
         case SHOW_MESSAGE:
-            return action.payload
+            return {class: action.payload.class||'', msg:action.payload.msg}
         case USER_ADD:
         case LOAD_ADD:
-            return ''
+            return messageInitialState
         default:
-            return state
+            return messageInitialState
     }
 }
 
