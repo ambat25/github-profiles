@@ -12,7 +12,7 @@ class Search extends Component {
 		return (
 			<form onSubmit={this.handleSubmit} className="field has-addons has-addons-centered column">
 				<div className="control">
-					<input className="input" name='userID' type="text" placeholder="Add github profile " />
+					<label hidden>Profile</label><input className="input" name='userID' type="text" placeholder="Add github profile " />
 				</div>
 				<div className="control">
 					<button className="button is-dark is-outlined">Add</button>
