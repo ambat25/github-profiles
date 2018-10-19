@@ -19,16 +19,13 @@ export const addUser = (userID) => {
 
     return (dispatch) => {
         dispatch(showMessage('adding user'))
-        fetchUser(userID).then(user=>dispatch(userAdd(user))).catch(err=>{
-            dispatch(showMessage('user not found'))
-            setTimeout(() => {
-              dispatch(showMessage(''));
-            }, 3000)
-            
+        fetchUser(userID).then(user=> {
+            if(!user.id) return dispatch(showMessage(''))
+            return dispatch(userAdd(user))
         })
     }
-}
 
+}
 export default (state = initialState, action) => {
     switch (action.type) {
         case USER_ADD:
