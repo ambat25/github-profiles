@@ -15,8 +15,8 @@ export default class Profile extends Component {
 					</div>
 					<div className="card-content">
 						<div className="media">
-							<div className="media-left">
-								<p>{this.props.name}</p>
+							<div className="media-left profile-details">
+								<p className='bubtitile is-4' length='12'>{this.props.name}</p>
 								<p className="subtitle is-6"><a target="_blank" rel="noopener noreferrer" href={this.props.html_url}>@{this.props.login}</a></p>
 							</div>
 						</div>
